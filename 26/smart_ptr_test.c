@@ -75,7 +75,7 @@ void TestScopedPtr() {
 
 //================shared_ptr=================
 //可以复制，内部使用引用计数
-void TestSharedPtr(boost::shared_ptr<Simple> memory) {  // 注意：无需使用 reference (或 const reference)
+void TestSharedPtr(boost::shared_ptr<Simple> memory) {  // 注意：无需使用 reference (或 const reference),如果使用reference，计数不会增加
   memory->PrintSomething();
   std::cout << "TestSharedPtr UseCount: " << memory.use_count() << std::endl;
 }
@@ -153,10 +153,10 @@ int main(void)
 {
     //TestAutoPtr3();
 	//TestScopedPtr();
-	//TestSharedPtr2();
+	TestSharedPtr2();
 	//TestScopedArray();
 	//TestSharedArray2();
-	TestWeakPtr();
+	//TestWeakPtr();
     return 0;
 }
 
